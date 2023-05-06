@@ -4,13 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:new-migration": "npx knex --knexfile db/knexfile.js migrate:make $migrationname",
+    "db:create": "node scripts/db/create-db",
+    "db:delete": "node scripts/db/drop-db",
+    "db:empty": "node scripts/db/empty-db",
+    "db:migrate": "knex --knexfile db/knexfile.js migrate:latest",
+    "db:rollback:latest": "knex --knexfile db/knexfile.js migrate:down",
+    "db:prepare": "npm run db:delete && npm run db:create && npm run db:migrate",
+    "db:seed": "knex --knexfile db/knexfile.js seed:run",
+    "db:reset": "npm run db:prepare && npm run db:seed"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonapi-serializer": "^3.6.7",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^2.4.2",
     "nodemon": "^2.0.22",
     "pg": "^8.10.0"
