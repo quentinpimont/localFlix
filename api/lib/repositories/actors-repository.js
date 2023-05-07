@@ -1,7 +1,7 @@
-const Repository = require('./repository');
+const MatureRepository = require('./mature-repository');
 
 
-class ActorsRepository extends Repository{
+class ActorsRepository extends MatureRepository{
     constructor (tablename = 'actors') {
         super(tablename)
     }

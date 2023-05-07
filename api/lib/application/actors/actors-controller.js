@@ -4,8 +4,8 @@ const {ActorNotFound} = require('../../utils/error');
 const repo = new ActorsRepository();
 
 module.exports = {
-    async listActor() {
-        const actors = await repo.list();
+    async listActor(matureContent) {
+        const actors = await repo.list(matureContent);
         return actors;
     },
 
@@ -13,8 +13,8 @@ module.exports = {
         await repo.insert(actor);
     },
 
-    async getActorId(id){
-        const actor = await repo.get(id, new ActorNotFound());
+    async getActorId(id, matureContent){
+        const actor = await repo.get(id, matureContent, new ActorNotFound());
         return actor; 
     }
 }

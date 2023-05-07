@@ -9,13 +9,13 @@ module.exports = {
     await repo.insert(category);
  },
 
- async list(){
-    const categories = await repo.list();
+ async list(matureContent){
+    const categories = await repo.list(matureContent);
     return categories;
  },
  
- async getById(id) {
-    const category = await repo.get(id, new CategoryNotFound());
+ async getById(id, matureContent) {
+    const category = await repo.get(id, matureContent, new CategoryNotFound());
     return category;
  }
 }
