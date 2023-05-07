@@ -17,11 +17,11 @@ class Repository {
     }
 
     async get(id, error) {
-        const category = await this.knex(this.tablename).select().where('id', id).first();
-        if (category === undefined){
+        const data = await this.knex(this.tablename).select().where('id', id).first();
+        if (data === undefined){
             throw error;
         }
-        return category;
+        return data;
     }
 
     async list() {
