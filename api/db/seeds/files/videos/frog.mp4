@@ -1,0 +1,23 @@
+<script src='https://www.recaptcha.net/recaptcha/api.js?onload=recaptchaOnLoad&render=explicit'></script>
+<h6>Télécharger</h6>
+<div>
+<p>
+En tant qu'utilisateur enregistré, vous n'avez pas de captcha.
+<a class='show-entry-point-modal' data-w="442" rel="nofollow" href="/fr/accounts/register/?source=download&amp;next=&amp;modal">Inscrivez-vous, c'est gratuit !</a>
+</p>
+<form action="/fr/videos/download/video-113403_medium.mp4" method="post" class="pure-form ajax_form" data-target="#cboxLoadedContent">
+<input type='hidden' name='csrfmiddlewaretoken' value='L60iVQx8hggYJPK0Cv07dirozELb9ETdMh8mBfWJMfNQF8572sn2nekVuXSEkm6E' />
+<div>
+<div id="download-recaptcha"></div>
+<div style="margin:15px 0 0"><input class="pure-button button-green" type="submit" value="Télécharger"></div>
+</div>
+</form>
+</div>
+<script>
+    function recaptchaOnLoad() {
+        grecaptcha.render('download-recaptcha', { 'sitekey' : '6Lc7IjUUAAAAAE_5VoWduKgJx5VmhJP3jZxVW6lV' });
+        resized();
+      };
+      setTimeout(function(){ resized(); }, 500);
+      setTimeout(function(){ resized(); }, 2000);
+</script>
